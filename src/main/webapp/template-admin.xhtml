@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ecommerce IF</title>
+        <h:outputStylesheet library="ecommerce-if" name="css/admin-theme.css"></h:outputStylesheet>
+        <h:outputStylesheet library="ecommerce-if" name="css/fontawesome-all.css"></h:outputStylesheet>
+        <h:outputStylesheet library="ecommerce-if" name="css/primeflex.min.css" />
+        
+
+    </h:head>
+    <h:body class="aside-desktop-open">
+        <header>
+            <div class="logo">
+                <h:graphicImage library="ecommerce-if" name="imagens/logo.png"></h:graphicImage>
+            </div>
+            <div class="acoes">
+                <div class="acoes-direita">
+                    <a href="#" class="aside-toggle"><i class="fa fa-bars"></i></a>
+                </div>
+                <div class="titulo">
+                    <h1>#{empty tituloTemplate?'Eccomerce IF':tituloTemplate}</h1>
+                </div>
+                <div class="acoes-esquerda">
+                    <a href="#">#</a>
+                </div>
+            </div>
+        </header>
+        <aside>
+            <ul class="navegacao">
+                <li><a class="ativo" href="index.xhtml">
+                        <i class="fa fa-tachometer-alt"></i> Dashboard
+                    </a>
+                </li>
+             
+                <li><a href="gerenciar-tag.xhtml"><i class="fa fa-tags"></i> Tags</a></li>
+                <li><a href="gerenciar-marca.xhtml"><i class="fas fa-bookmark"></i> Marca</a></li>
+            </ul>
+        </aside>
+        <div class="overlay-aside"></div>
+        <main>
+            <p:messages showDetail="true">
+                <p:autoUpdate></p:autoUpdate>
+            </p:messages>
+            <p:growl showDetail="true">
+                <p:autoUpdate></p:autoUpdate>
+            </p:growl>
+            
+            <ui:insert></ui:insert>
+            
+            <p:ajaxStatus onstart="PF('statusDialog').show()" oncomplete="PF('statusDialog').hide()"/>
+
+            <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                <div class="p-text-center ajaxStatusEcommerce">
+                    <i class="pi pi-spinner pi-spin" aria-hidden="true"></i>
+                    Processando...
+                </div>
+            </p:dialog>
+        </main>
+        <footer>
+            <p>PPW2 02-2021 - TADS - IFTM - Paracatu</p>
+        </footer>
+        <h:outputScript library="ecommerce-if" name="js/admin-script.js"></h:outputScript>
+    </h:body>
+</html>
+

@@ -9,60 +9,117 @@
 
     <name>ppw2-2021-02-ecommerce</name>
 
-    <properties>
+      <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <hibernate.version>5.4.31.Final</hibernate.version>
     </properties>
     
     <dependencies>
-        
+        <!-- Dependências Banco de dados -->
         <dependency>
-    <groupId>org.projectlombok</groupId>
-    <artifactId>lombok</artifactId>
-    <version>1.18.20</version>
-    
-            <type>jar</type>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
         </dependency>
-        
         <dependency>
-            <groupId>org.primefaces</groupId>
-            <artifactId>primefaces</artifactId>
-            <version>10.0.0</version>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
         </dependency>
-
-        
-        <!-- Dependencia do CDI - Injeçao de dependencia -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.25</version>
+        </dependency>
+        <!-- Dependência de Injeção de Contexto de Dependência -->
         <dependency>
             <groupId>org.jboss.weld</groupId>
             <artifactId>weld-core</artifactId>
             <version>2.4.8.Final</version>
         </dependency>
-        
         <dependency>
             <groupId>org.jboss.weld</groupId>
             <artifactId>weld-core-jsf</artifactId>
             <version>2.4.8.Final</version>
         </dependency>
-
         <dependency>
             <groupId>org.jboss.weld.servlet</groupId>
             <artifactId>weld-servlet</artifactId>
             <version>2.4.8.Final</version>
         </dependency>
-        
-        <!-- Dependencia do Java Server Faces (JSF) -->
+        <!-- Dependência de Componentes Primefaces -->
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>10.0.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.googlecode.owasp-java-html-sanitizer/owasp-java-html-sanitizer -->
+        <dependency>
+            <groupId>com.googlecode.owasp-java-html-sanitizer</groupId>
+            <artifactId>owasp-java-html-sanitizer</artifactId>
+            <version>20200713.1</version>
+        </dependency>
+
+        <!-- Dependência JSF -->
         <dependency>
             <groupId>org.glassfish</groupId>
             <artifactId>javax.faces</artifactId>
             <version>2.3.9</version>
         </dependency>
-        
-        <!-- Dependencia do Java WEB -->
+        <!-- Dependência Java WEB -->
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.core</artifactId>
+            <version>2.7.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.asm</artifactId>
+            <version>2.7.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.antlr</artifactId>
+            <version>2.7.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.jpa</artifactId>
+            <version>2.7.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.jpa.jpql</artifactId>
+            <version>2.7.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.moxy</artifactId>
+            <version>2.7.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>javax.persistence</artifactId>
+            <version>2.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.jpa.modelgen.processor</artifactId>
+            <version>2.7.7</version>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
             <scope>provided</scope>
+        </dependency>
+        <!-- Dependência de Criação de Getter e Setter -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
         </dependency>
     </dependencies>
 
@@ -83,7 +140,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>3.3.1</version>
+                <version>2.3</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
